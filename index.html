@@ -3,11 +3,547 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARG Company Site</title>
+
+    <title>灯希エネルギー株式会社 | TOKI ENERGY</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Helvetica Neue",
+                "Noto Sans JP",
+                Arial,
+                sans-serif;
+            color: #111;
+            background: #fff;
+        }
+
+        /* ===== HEADER ===== */
+
+        header {
+            height: 80px;
+            border-top: 6px solid #000;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            background: #fff;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .logo-area img {
+            height: 48px;
+            width: auto;
+        }
+
+        .company-name {
+            line-height: 1.1;
+        }
+
+        .company-name .jp {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .company-name .en {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #555;
+            margin-top: 4px;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            color: #111;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+        /* ===== HERO ===== */
+
+        .hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border: 1px solid #ff0000;
+            transform: rotate(45deg);
+            right: -180px;
+            top: 40px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #00ffff;
+            transform: rotate(45deg);
+            left: -150px;
+            bottom: -100px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 13px;
+            letter-spacing: 5px;
+            margin-bottom: 28px;
+            color: #555;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 72px);
+            margin: 0;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            position: relative;
+        }
+
+        .hero h1 span::after {
+            content: "";
+            position: absolute;
+            height: 5px;
+            width: 45%;
+            background: #ff0000;
+            left: 0;
+            bottom: -12px;
+        }
+
+        .hero-message {
+            margin-top: 45px;
+            font-size: 18px;
+            letter-spacing: 0.15em;
+        }
+
+        /* ===== SECTION ===== */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+        .section-title .en {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #777;
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        /* ===== NEWS ===== */
+
+        .news {
+            border-top: 1px solid #111;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 30px;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .news-date {
+            font-family: monospace;
+            min-width: 110px;
+        }
+
+        .news-category {
+            font-size: 11px;
+            border: 1px solid #111;
+            padding: 3px 8px;
+            height: fit-content;
+        }
+
+        /* ===== BUSINESS ===== */
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #111;
+            border: 1px solid #111;
+        }
+
+        .business-card {
+            background: #fff;
+            padding: 45px 30px;
+            min-height: 200px;
+            transition: 0.2s;
+        }
+
+        .business-card:hover {
+            background: #f5f5f5;
+        }
+
+        .business-number {
+            font-family: monospace;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .business-card h3 {
+            margin: 30px 0 12px;
+            font-size: 20px;
+        }
+
+        .business-card p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* ===== ABOUT ===== */
+
+        .about {
+            background: #000;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #00ffff;
+            transform: rotate(45deg);
+            right: -250px;
+            top: -150px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about .section-title .en {
+            color: #aaa;
+        }
+
+        .about p {
+            font-size: 17px;
+            line-height: 2.2;
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            background: #111;
+            color: #fff;
+            padding: 45px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .footer-name {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        footer small {
+            color: #aaa;
+        }
+
+        /* ===== MOBILE ===== */
+
+        @media (max-width: 800px) {
+
+            header {
+                height: auto;
+                padding: 20px 5%;
+                align-items: flex-start;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .business-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .news-item {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .business-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 450px;
+            }
+
+            .hero-message {
+                font-size: 15px;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>ARG Company</h1>
-    <p>情熱と理性で未来を拓く。</p>
-    <p>GitHub Pages test</p>
+
+<header>
+    <div class="logo-area">
+
+        <!-- logo.png を images フォルダに入れてください -->
+        <img src="images/logo.png" alt="灯希エネルギー株式会社">
+
+        <div class="company-name">
+            <div class="jp">灯希エネルギー株式会社</div>
+            <div class="en">TOKI ENERGY CORPORATION</div>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#about">ABOUT</a>
+        <a href="#business">BUSINESS</a>
+        <a href="#news">NEWS</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+        <div class="hero-content">
+
+            <div class="hero-subtitle">
+                TOKI ENERGY CORPORATION
+            </div>
+
+            <h1>
+                <span>未来を、拓く。</span>
+            </h1>
+
+            <div class="hero-message">
+                情熱と理性で、次のエネルギーへ。
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- NEWS -->
+
+    <section id="news">
+
+        <div class="section-title">
+            <span class="en">NEWS</span>
+            <h2>お知らせ</h2>
+        </div>
+
+        <div class="news">
+
+            <div class="news-item">
+                <span class="news-date">2026.09.17</span>
+                <span class="news-category">NEWS</span>
+                <span>灯希エネルギー株式会社 Webサイトを公開しました。</span>
+            </div>
+
+            <div class="news-item">
+                <span class="news-date">2026.09.01</span>
+                <span class="news-category">RESEARCH</span>
+                <span>次世代エネルギー研究に関する新たな取り組みを開始しました。</span>
+            </div>
+
+            <div class="news-item">
+                <span class="news-date">2026.08.20</span>
+                <span class="news-category">CORPORATE</span>
+                <span>研究開発体制を強化しました。</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BUSINESS -->
+
+    <section id="business">
+
+        <div class="section-title">
+            <span class="en">BUSINESS</span>
+            <h2>事業・研究領域</h2>
+        </div>
+
+        <div class="business-grid">
+
+            <div class="business-card">
+                <div class="business-number">01</div>
+                <h3>ENERGY</h3>
+                <p>
+                    安定したエネルギー供給と、
+                    次世代のエネルギー技術の研究・開発。
+                </p>
+            </div>
+
+            <div class="business-card">
+                <div class="business-number">02</div>
+                <h3>INFORMATION</h3>
+                <p>
+                    エネルギーシステムと情報技術を融合した
+                    新たな社会基盤の研究。
+                </p>
+            </div>
+
+            <div class="business-card">
+                <div class="business-number">03</div>
+                <h3>MATERIALS</h3>
+                <p>
+                    エネルギー分野を支える
+                    新素材・機能材料の研究開発。
+                </p>
+            </div>
+
+            <div class="business-card">
+                <div class="business-number">04</div>
+                <h3>LIFE SCIENCE</h3>
+                <p>
+                    エネルギーと生命科学の未来を見据えた
+                    基礎研究・応用研究。
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="about">
+
+        <div class="about-content">
+
+            <div class="section-title">
+                <span class="en">ABOUT TOKI ENERGY</span>
+                <h2>灯希エネルギーについて</h2>
+            </div>
+
+            <p>
+                灯希エネルギー株式会社は、
+                エネルギーを通じて社会の未来を拓く
+                総合エネルギー企業です。
+            </p>
+
+            <p>
+                私たちは、現在の社会を支えるエネルギー事業に加え、
+                次世代エネルギー、情報技術、新素材、生命科学など、
+                幅広い分野における研究開発に取り組んでいます。
+            </p>
+
+            <p>
+                情熱だけでは、未来は拓けない。<br>
+                理性だけでも、未来は生まれない。<br>
+                その両方をもって、まだ見ぬ可能性へ。
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="section-title">
+            <span class="en">CONTACT</span>
+            <h2>お問い合わせ</h2>
+        </div>
+
+        <p>
+            灯希エネルギー株式会社へのお問い合わせはこちらから。
+        </p>
+
+        <p>
+            <strong>お問い合わせ窓口</strong><br>
+            contact@example.com
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <div class="footer-name">
+        灯希エネルギー株式会社
+    </div>
+
+    <small>
+        © 2026 TOKI ENERGY CORPORATION.
+    </small>
+</footer>
+
 </body>
 </html>
