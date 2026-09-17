@@ -134,19 +134,30 @@
             font-weight: 700;
         }
 
-        .hero h1 span {
-            position: relative;
-        }
+.hero h1 span {
+    position: relative;
+    display: inline-block;
+}
 
-        .hero h1 span::after {
-            content: "";
-            position: absolute;
-            height: 5px;
-            width: 45%;
-            background: #ff0000;
-            left: 0;
-            bottom: -12px;
-        }
+.hero h1 .red-line::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: #ff0000;
+    left: 0;
+    bottom: -12px;
+}
+
+.hero h1 .cyan-line::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    background: #00ffff;
+    left: 0;
+    bottom: -12px;
+}
 
         .hero-message {
             margin-top: 45px;
@@ -379,10 +390,10 @@
             <div class="hero-subtitle">
                 TOKI ENERGY CORPORATION
             </div>
-
-            <h1>
-                <span>未来を、拓く。</span>
-            </h1>
+            
+<h1>
+    <span class="red-line">未来を、</span><span class="cyan-line">拓く。</span>
+</h1>
 
             <div class="hero-message">
                 情熱と理性で、次のエネルギーへ。
