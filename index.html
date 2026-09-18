@@ -27,7 +27,26 @@
             background: #fff;
             line-height: 1.7;
         }
+.employee-link {
+    position: fixed;
+    right: 18px;
+    bottom: 14px;
 
+    font-size: 10px;
+    letter-spacing: 0.15em;
+
+    color: #999;
+    text-decoration: none;
+
+    opacity: 0.45;
+
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.employee-link:hover {
+    color: #ff0000;
+    opacity: 1;
+}
         a {
             color: inherit;
             text-decoration: none;
@@ -544,7 +563,6 @@
     <a href="recruitment.html">RECRUITMENT</a>
     <a href="search.html">SEARCH</a>
     <a href="contact.html">CONTACT</a>
-    <a href="employee.html">社員専用ページ</a>
 </nav>
 
     </div>
@@ -947,6 +965,8 @@
     </div>
 
 </footer>
-
+<a href="employee.html" class="employee-link">
+    EMPLOYEE
+</a>
 </body>
 </html>
