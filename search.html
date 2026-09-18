@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>サイト内検索 | 灯希エネルギー株式会社</title>
+
+    <meta name="description" content="灯希エネルギー株式会社のサイト内検索">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Helvetica Neue",
+                "Yu Gothic",
+                YuGothic,
+                sans-serif;
+            color: #111;
+            background: #fff;
+        }
+
+        header {
+            border-bottom: 1px solid #ddd;
+            padding: 20px 40px;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #111;
+        }
+
+        .company-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .company-name span {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            font-weight: normal;
+            margin-top: 4px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 50px;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 700px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 18px;
+            font-size: 18px;
+            border: 2px solid #111;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #ff0000;
+        }
+
+        .search-box button {
+            width: 130px;
+            border: none;
+            background: #111;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background: #ff0000;
+        }
+
+        #results {
+            margin-top: 50px;
+        }
+
+        .result {
+            border-top: 1px solid #ddd;
+            padding: 25px 0;
+        }
+
+        .result a {
+            color: #111;
+            text-decoration: none;
+        }
+
+        .result a:hover {
+            color: #ff0000;
+        }
+
+        .result-title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .result-url {
+            color: #777;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .no-result {
+            padding: 30px 0;
+            color: #777;
+        }
+
+        .back {
+            margin-top: 70px;
+        }
+
+        .back a {
+            color: #111;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">
+        <div class="company-name">
+            灯希エネルギー株式会社
+            <span>TOUKI ENERGY CORPORATION</span>
+        </div>
+    </a>
+</header>
+
+<main>
+
+    <h1>サイト内検索</h1>
+
+    <div class="subtitle">
+        灯希エネルギー株式会社のウェブサイトを検索できます。
+    </div>
+
+    <form class="search-box" id="searchForm">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="キーワードを入力してください"
+            autocomplete="off"
+        >
+
+        <button type="submit">
+            検索
+        </button>
+    </form>
+
+    <div id="results"></div>
+
+    <div class="back">
+        <a href="index.html">← トップページへ戻る</a>
+    </div>
+
+</main>
+
+<script>
+
+const pages = [
+
+    {
+        keywords: ["会社概要", "灯希エネルギー", "TOUKI ENERGY"],
+        title: "会社概要",
+        url: "about.html"
+    },
+
+    {
+        keywords: ["事業内容", "エネルギー", "電力"],
+        title: "事業内容・サービス紹介",
+        url: "business.html"
+    },
+
+    {
+        keywords: ["研究", "研究開発", "次世代エネルギー"],
+        title: "研究開発",
+        url: "research.html"
+    },
+
+    {
+        keywords: ["ニュース", "お知らせ"],
+        title: "お知らせ",
+        url: "news.html"
+    },
+
+    {
+        keywords: ["採用", "求人", "募集"],
+        title: "採用情報",
+        url: "recruitment.html"
+    },
+
+    /*
+     * ARG用の隠しページ
+     *
+     * 後からここにキーワードを追加していくことで、
+     * プレイヤーが検索によって発見できるページを増やせます。
+     */
+
+    {
+        keywords: ["南埼玉研究生産センター"],
+        title: "南埼玉研究生産センター",
+        url: "facilities/saitama.html"
+    },
+
+    {
+        keywords: ["LUMEN", "LUMEN計画"],
+        title: "LUMEN計画",
+        url: "research/lumen.html"
+    },
+
+    {
+        keywords: ["第三研究棟"],
+        title: "第三研究棟",
+        url: "research/building3.html"
+    }
+
+];
+
+
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const input =
+        document.getElementById("searchInput").value.trim();
+
+    const results =
+        document.getElementById("results");
+
+    /*
+     * テスト用特殊キーワード
+     */
+
+    if (input.toLowerCase() === "touki_test") {
+
+        window.location.href = "test.html";
+
+        return;
+    }
+
+
+    /*
+     * 通常検索
+     */
+
+    if (input === "") {
+
+        results.innerHTML =
+            '<div class="no-result">検索キーワードを入力してください。</div>';
+
+        return;
+    }
+
+
+    const matchedPages = pages.filter(page => {
+
+        return page.keywords.some(keyword =>
+            keyword.toLowerCase().includes(input.toLowerCase()) ||
+            input.toLowerCase().includes(keyword.toLowerCase())
+        );
+
+    });
+
+
+    if (matchedPages.length === 0) {
+
+        results.innerHTML =
+            '<div class="no-result">該当するページが見つかりませんでした。</div>';
+
+        return;
+    }
+
+
+    results.innerHTML =
+        matchedPages.map(page => `
+
+            <div class="result">
+
+                <a href="${page.url}">
+
+                    <div class="result-title">
+                        ${page.title}
+                    </div>
+
+                    <div class="result-url">
+                        ${page.url}
+                    </div>
+
+                </a>
+
+            </div>
+
+        `).join("");
+
+});
+
+</script>
+
+</body>
+</html>
