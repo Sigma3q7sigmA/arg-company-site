@@ -4,230 +4,265 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>灯希エネルギー株式会社 | TOUKI ENERGY</title>
+    <title>灯希エネルギー株式会社 | TOUKI ENERGY CORPORATION</title>
+
+    <meta name="description"
+          content="灯希エネルギー株式会社は、電力・エネルギー供給、蓄電、エネルギーマネジメント、次世代エネルギー技術の研究開発に取り組む企業です。">
 
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
             font-family:
                 -apple-system,
                 BlinkMacSystemFont,
                 "Helvetica Neue",
                 "Noto Sans JP",
-                Arial,
                 sans-serif;
             color: #111;
             background: #fff;
+            line-height: 1.7;
         }
 
-        /* ===== HEADER ===== */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* ====================
+           HEADER
+        ==================== */
 
         header {
-            height: 80px;
-            border-top: 6px solid #000;
             border-bottom: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
             background: #fff;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 15px;
         }
 
         .logo-area img {
-            height: 48px;
-            width: auto;
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
         }
 
         .company-name {
-            line-height: 1.1;
+            line-height: 1.2;
         }
 
         .company-name .jp {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
         }
 
         .company-name .en {
-            font-size: 10px;
-            letter-spacing: 2px;
-            color: #555;
             margin-top: 4px;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            color: #666;
         }
 
-        nav {
+        nav ul {
+            list-style: none;
             display: flex;
             gap: 28px;
         }
 
         nav a {
-            color: #111;
-            text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
+            letter-spacing: 0.08em;
+            transition: opacity 0.2s;
         }
 
         nav a:hover {
-            color: #ff0000;
+            opacity: 0.5;
         }
 
-        /* ===== HERO ===== */
+        /* ====================
+           HERO
+        ==================== */
 
         .hero {
-            min-height: 520px;
+            min-height: 580px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid #ddd;
+            padding: 80px 30px;
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 420px;
-            height: 420px;
-            border: 1px solid #ff0000;
-            transform: rotate(45deg);
-            right: -180px;
-            top: 40px;
+        .hero-inner {
+            max-width: 900px;
         }
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border: 1px solid #00ffff;
-            transform: rotate(45deg);
-            left: -150px;
-            bottom: -100px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-subtitle {
-            font-size: 13px;
-            letter-spacing: 5px;
-            margin-bottom: 28px;
+        .hero-en {
+            font-size: 14px;
+            letter-spacing: 0.25em;
             color: #555;
+            margin-bottom: 30px;
         }
 
         .hero h1 {
-            font-size: clamp(36px, 6vw, 72px);
-            margin: 0;
+            font-size: clamp(48px, 8vw, 90px);
+            font-weight: 800;
             letter-spacing: 0.08em;
-            font-weight: 700;
+            margin-bottom: 50px;
         }
 
-.hero h1 span {
-    position: relative;
-    display: inline-block;
-}
-
-.hero h1 .red-line::after {
-    content: "";
-    position: absolute;
-    height: 5px;
-    width: 100%;
-    background: #ff0000;
-    left: 0;
-    bottom: -12px;
-}
-
-.hero h1 .cyan-line::after {
-    content: "";
-    position: absolute;
-    height: 5px;
-    width: 100%;
-    background: #00ffff;
-    left: 0;
-    bottom: -12px;
-}
-
-        .hero-message {
-            margin-top: 45px;
-            font-size: 18px;
-            letter-spacing: 0.15em;
+        .hero h1 span {
+            position: relative;
+            display: inline-block;
         }
 
-        /* ===== SECTION ===== */
+        .hero h1 .red-line::after {
+            content: "";
+            position: absolute;
+            height: 5px;
+            width: 100%;
+            background: #ff0000;
+            left: 0;
+            bottom: -12px;
+        }
+
+        .hero h1 .cyan-line::after {
+            content: "";
+            position: absolute;
+            height: 5px;
+            width: 100%;
+            background: #00ffff;
+            left: 0;
+            bottom: -12px;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: #555;
+            letter-spacing: 0.08em;
+        }
+
+        /* ====================
+           SECTION
+        ==================== */
 
         section {
-            padding: 90px 8%;
+            padding: 100px 30px;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section-title {
-            margin-bottom: 45px;
+            margin-bottom: 55px;
         }
 
         .section-title .en {
-            display: block;
             font-size: 12px;
-            letter-spacing: 4px;
+            letter-spacing: 0.2em;
             color: #777;
             margin-bottom: 8px;
         }
 
         .section-title h2 {
-            margin: 0;
             font-size: 32px;
+            letter-spacing: 0.08em;
         }
 
-        /* ===== NEWS ===== */
+        /* ====================
+           NEWS
+        ==================== */
 
-        .news {
-            border-top: 1px solid #111;
+        .news-list {
+            border-top: 1px solid #ddd;
         }
 
         .news-item {
             display: flex;
             gap: 30px;
-            padding: 20px 0;
+            padding: 22px 10px;
             border-bottom: 1px solid #ddd;
+            transition: background 0.2s;
+        }
+
+        .news-item:hover {
+            background: #f7f7f7;
         }
 
         .news-date {
-            font-family: monospace;
-            min-width: 110px;
+            width: 100px;
+            flex-shrink: 0;
+            font-size: 13px;
+            color: #777;
         }
 
         .news-category {
-            font-size: 11px;
-            border: 1px solid #111;
-            padding: 3px 8px;
-            height: fit-content;
+            width: 90px;
+            flex-shrink: 0;
+            font-size: 12px;
+            font-weight: 700;
         }
 
-        /* ===== BUSINESS ===== */
+        .news-title {
+            font-size: 15px;
+        }
+
+        .news-more {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .more-link {
+            display: inline-block;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #111;
+            font-size: 13px;
+            letter-spacing: 0.08em;
+        }
+
+        /* ====================
+           BUSINESS
+        ==================== */
 
         .business-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: #111;
-            border: 1px solid #111;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            background: #ddd;
         }
 
         .business-card {
             background: #fff;
-            padding: 45px 30px;
-            min-height: 200px;
-            transition: 0.2s;
+            padding: 45px;
+            min-height: 230px;
+            transition: background 0.2s;
         }
 
         .business-card:hover {
@@ -235,123 +270,247 @@
         }
 
         .business-number {
-            font-family: monospace;
             font-size: 12px;
             color: #777;
+            letter-spacing: 0.15em;
         }
 
         .business-card h3 {
-            margin: 30px 0 12px;
-            font-size: 20px;
+            margin: 15px 0;
+            font-size: 24px;
+            letter-spacing: 0.05em;
+        }
+
+        .business-card .en {
+            font-size: 11px;
+            color: #777;
+            letter-spacing: 0.15em;
+            margin-bottom: 20px;
         }
 
         .business-card p {
-            font-size: 13px;
-            line-height: 1.8;
+            font-size: 14px;
             color: #555;
         }
 
-        /* ===== ABOUT ===== */
+        /* ====================
+           COMPANY
+        ==================== */
 
-        .about {
-            background: #000;
+        .company {
+            background: #111;
             color: #fff;
-            position: relative;
-            overflow: hidden;
         }
 
-        .about::after {
-            content: "";
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            border: 1px solid #00ffff;
-            transform: rotate(45deg);
-            right: -250px;
-            top: -150px;
-        }
-
-        .about-content {
-            max-width: 800px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about .section-title .en {
+        .company .section-title .en {
             color: #aaa;
         }
 
-        .about p {
-            font-size: 17px;
-            line-height: 2.2;
+        .company-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
         }
 
-        /* ===== FOOTER ===== */
+        .company-message {
+            padding-right: 30px;
+        }
+
+        .company-message h3 {
+            font-size: 26px;
+            margin-bottom: 25px;
+            letter-spacing: 0.08em;
+        }
+
+        .company-message p {
+            color: #ccc;
+            font-size: 15px;
+        }
+
+        .company-table {
+            border-top: 1px solid #444;
+        }
+
+        .company-row {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            padding: 15px 0;
+            border-bottom: 1px solid #444;
+            font-size: 14px;
+        }
+
+        .company-row .label {
+            color: #999;
+        }
+
+        .company-row .value {
+            color: #eee;
+        }
+
+        /* ====================
+           LINKS
+        ==================== */
+
+        .page-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #ddd;
+        }
+
+        .page-link {
+            background: #fff;
+            padding: 25px;
+            text-align: center;
+            font-size: 13px;
+            transition: background 0.2s;
+        }
+
+        .page-link:hover {
+            background: #f0f0f0;
+        }
+
+        /* ====================
+           CONTACT
+        ==================== */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 15px 50px;
+            border: 1px solid #111;
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            transition: all 0.2s;
+        }
+
+        .contact-button:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        /* ====================
+           FOOTER
+        ==================== */
 
         footer {
             background: #111;
-            color: #fff;
-            padding: 45px 8%;
+            color: #aaa;
+            padding: 40px 30px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 30px;
         }
 
-        footer .footer-name {
-            font-size: 16px;
-            font-weight: 700;
+        .footer-company {
+            color: #fff;
+            font-size: 14px;
         }
 
-        footer small {
-            color: #aaa;
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            font-size: 11px;
         }
 
-        /* ===== MOBILE ===== */
+        .copyright {
+            margin-top: 25px;
+            font-size: 10px;
+            color: #666;
+        }
+
+        /* ====================
+           RESPONSIVE
+        ==================== */
 
         @media (max-width: 800px) {
 
-            header {
-                height: auto;
-                padding: 20px 5%;
+            .header-inner {
+                flex-direction: column;
                 align-items: flex-start;
             }
 
-            nav {
-                display: none;
-            }
-
-            .business-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .news-item {
+            nav ul {
                 flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            section {
-                padding: 65px 6%;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .business-grid {
-                grid-template-columns: 1fr;
+                gap: 15px 20px;
             }
 
             .hero {
                 min-height: 450px;
             }
 
-            .hero-message {
-                font-size: 15px;
+            .hero h1 {
+                font-size: 50px;
             }
 
-            footer {
+            .business-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .company-info {
+                grid-template-columns: 1fr;
+            }
+
+            .page-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .news-item {
+                display: block;
+            }
+
+            .news-date,
+            .news-category {
+                width: auto;
+                display: inline-block;
+                margin-right: 15px;
+            }
+
+            .news-title {
+                margin-top: 5px;
+            }
+
+            .footer-inner {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 15px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 70px 20px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .company-row {
+                grid-template-columns: 100px 1fr;
+            }
+
+            .business-card {
+                padding: 30px;
             }
         }
     </style>
@@ -359,201 +518,434 @@
 
 <body>
 
+<!-- ====================
+     HEADER
+==================== -->
+
 <header>
-    <div class="logo-area">
+    <div class="header-inner">
 
-        <!-- logo.png を images フォルダに入れてください -->
-        <img src="images/logo.png" alt="灯希エネルギー株式会社">
+        <a href="index.html" class="logo-area">
 
-        <div class="company-name">
-            <div class="jp">灯希エネルギー株式会社</div>
-            <div class="en">TOUKI ENERGY CORPORATION</div>
-        </div>
+            <img src="images/logo.png" alt="灯希エネルギー株式会社 ロゴ">
+
+            <div class="company-name">
+                <div class="jp">灯希エネルギー株式会社</div>
+                <div class="en">TOUKI ENERGY CORPORATION</div>
+            </div>
+
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="business.html">BUSINESS</a></li>
+                <li><a href="research.html">RESEARCH</a></li>
+                <li><a href="news.html">NEWS</a></li>
+                <li><a href="recruitment.html">RECRUIT</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+
     </div>
-
-    <nav>
-        <a href="#about">ABOUT</a>
-        <a href="#business">BUSINESS</a>
-        <a href="#news">NEWS</a>
-        <a href="#contact">CONTACT</a>
-    </nav>
 </header>
 
 
+<!-- ====================
+     HERO
+==================== -->
+
 <main>
 
-    <!-- HERO -->
+<section class="hero">
 
-    <section class="hero">
-        <div class="hero-content">
+    <div class="hero-inner">
 
-            <div class="hero-subtitle">
-                TOUKI ENERGY CORPORATION
-            </div>
-            
-<h1>
-    <span class="red-line">未来を、</span><span class="cyan-line">拓く。</span>
-</h1>
-
-            <div class="hero-message">
-                情熱と理性で、次のエネルギーへ。
-            </div>
-
+        <div class="hero-en">
+            TOUKI ENERGY CORPORATION
         </div>
-    </section>
+
+        <h1>
+            <span class="red-line">未来を、</span><span class="cyan-line">拓く。</span>
+        </h1>
+
+        <p>
+            情熱と理性で、次のエネルギーへ。
+        </p>
+
+    </div>
+
+</section>
 
 
-    <!-- NEWS -->
+<!-- ====================
+     NEWS
+==================== -->
 
-    <section id="news">
+<section>
+
+    <div class="section-inner">
 
         <div class="section-title">
-            <span class="en">NEWS</span>
+            <div class="en">NEWS</div>
             <h2>お知らせ</h2>
         </div>
 
-        <div class="news">
+        <div class="news-list">
 
-            <div class="news-item">
-                <span class="news-date">2026.09.17</span>
-                <span class="news-category">NEWS</span>
-                <span>灯希エネルギー株式会社 Webサイトを公開しました。</span>
-            </div>
+            <a href="news.html" class="news-item">
+                <div class="news-date">2026.08.31</div>
+                <div class="news-category">お知らせ</div>
+                <div class="news-title">
+                    当社事業に関する重要なお知らせ
+                </div>
+            </a>
 
-            <div class="news-item">
-                <span class="news-date">2026.09.01</span>
-                <span class="news-category">RESEARCH</span>
-                <span>次世代エネルギー研究に関する新たな取り組みを開始しました。</span>
-            </div>
+            <a href="news.html" class="news-item">
+                <div class="news-date">2026.07.15</div>
+                <div class="news-category">研究開発</div>
+                <div class="news-title">
+                    次世代エネルギー研究に関する新たな実証実験を開始しました
+                </div>
+            </a>
 
-            <div class="news-item">
-                <span class="news-date">2026.08.20</span>
-                <span class="news-category">CORPORATE</span>
-                <span>研究開発体制を強化しました。</span>
-            </div>
+            <a href="news.html" class="news-item">
+                <div class="news-date">2026.06.30</div>
+                <div class="news-category">産学連携</div>
+                <div class="news-title">
+                    関東拓進大学との共同研究に関するお知らせ
+                </div>
+            </a>
+
+            <a href="news.html" class="news-item">
+                <div class="news-date">2026.04.01</div>
+                <div class="news-category">企業情報</div>
+                <div class="news-title">
+                    2026年度 新体制のお知らせ
+                </div>
+            </a>
 
         </div>
 
-    </section>
+        <div class="news-more">
+            <a href="news.html" class="more-link">
+                お知らせ一覧 →
+            </a>
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- BUSINESS -->
+<!-- ====================
+     BUSINESS
+==================== -->
 
-    <section id="business">
+<section>
+
+    <div class="section-inner">
 
         <div class="section-title">
-            <span class="en">BUSINESS</span>
-            <h2>事業・研究領域</h2>
+            <div class="en">BUSINESS</div>
+            <h2>事業内容</h2>
         </div>
 
         <div class="business-grid">
 
-            <div class="business-card">
+            <a href="business.html" class="business-card">
+
                 <div class="business-number">01</div>
-                <h3>ENERGY</h3>
-                <p>
-                    安定したエネルギー供給と、
-                    次世代のエネルギー技術の研究・開発。
-                </p>
-            </div>
 
-            <div class="business-card">
+                <h3>電力・エネルギー</h3>
+
+                <div class="en">
+                    ENERGY
+                </div>
+
+                <p>
+                    安定した電力供給を支えるエネルギー関連事業。
+                    発電・電力設備に関する技術開発およびサービスを展開しています。
+                </p>
+
+            </a>
+
+
+            <a href="business.html" class="business-card">
+
                 <div class="business-number">02</div>
-                <h3>INFORMATION</h3>
-                <p>
-                    エネルギーシステムと情報技術を融合した
-                    新たな社会基盤の研究。
-                </p>
-            </div>
 
-            <div class="business-card">
+                <h3>蓄電技術</h3>
+
+                <div class="en">
+                    STORAGE
+                </div>
+
+                <p>
+                    電力を効率的に蓄え、必要な場所・時間へ届けるための
+                    蓄電システムおよび関連技術を研究・開発しています。
+                </p>
+
+            </a>
+
+
+            <a href="business.html" class="business-card">
+
                 <div class="business-number">03</div>
-                <h3>MATERIALS</h3>
-                <p>
-                    エネルギー分野を支える
-                    新素材・機能材料の研究開発。
-                </p>
-            </div>
 
-            <div class="business-card">
+                <h3>エネルギーマネジメント</h3>
+
+                <div class="en">
+                    MANAGEMENT
+                </div>
+
+                <p>
+                    エネルギーの需給を最適化するシステムを提供し、
+                    より効率的で持続可能なエネルギー利用を目指しています。
+                </p>
+
+            </a>
+
+
+            <a href="research.html" class="business-card">
+
                 <div class="business-number">04</div>
-                <h3>LIFE SCIENCE</h3>
+
+                <h3>次世代エネルギー研究</h3>
+
+                <div class="en">
+                    RESEARCH
+                </div>
+
                 <p>
-                    エネルギーと生命科学の未来を見据えた
-                    基礎研究・応用研究。
+                    将来のエネルギー社会を見据え、新たなエネルギー技術の
+                    基礎研究から実用化まで幅広く取り組んでいます。
                 </p>
-            </div>
+
+            </a>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- ABOUT -->
+<!-- ====================
+     COMPANY
+==================== -->
 
-    <section id="about" class="about">
+<section class="company">
 
-        <div class="about-content">
-
-            <div class="section-title">
-                <span class="en">ABOUT TOUKI ENERGY</span>
-                <h2>灯希エネルギーについて</h2>
-            </div>
-
-            <p>
-                灯希エネルギー株式会社は、
-                エネルギーを通じて社会の未来を拓く
-                総合エネルギー企業です。
-            </p>
-
-            <p>
-                私たちは、現在の社会を支えるエネルギー事業に加え、
-                次世代エネルギー、情報技術、新素材、生命科学など、
-                幅広い分野における研究開発に取り組んでいます。
-            </p>
-
-            <p>
-                情熱だけでは、未来は拓けない。<br>
-                理性だけでも、未来は生まれない。<br>
-                その両方をもって、まだ見ぬ可能性へ。
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section id="contact">
+    <div class="section-inner">
 
         <div class="section-title">
-            <span class="en">CONTACT</span>
+            <div class="en">ABOUT US</div>
+            <h2>会社概要</h2>
+        </div>
+
+
+        <div class="company-info">
+
+            <div class="company-message">
+
+                <h3>
+                    エネルギーから、<br>
+                    次の未来へ。
+                </h3>
+
+                <p>
+                    灯希エネルギー株式会社は、1996年の設立以来、
+                    電力・エネルギー分野における技術開発と
+                    サービス提供に取り組んできました。
+                </p>
+
+                <br>
+
+                <p>
+                    社会を支えるエネルギーのあり方を見つめ、
+                    持続可能で豊かな未来の実現に向けて、
+                    研究開発と事業活動を進めています。
+                </p>
+
+                <br>
+
+                <a href="about.html" class="more-link">
+                    会社情報を見る →
+                </a>
+
+            </div>
+
+
+            <div class="company-table">
+
+                <div class="company-row">
+                    <div class="label">商号</div>
+                    <div class="value">
+                        灯希エネルギー株式会社
+                    </div>
+                </div>
+
+                <div class="company-row">
+                    <div class="label">英文商号</div>
+                    <div class="value">
+                        TOUKI ENERGY CORPORATION
+                    </div>
+                </div>
+
+                <div class="company-row">
+                    <div class="label">設立</div>
+                    <div class="value">
+                        1996年
+                    </div>
+                </div>
+
+                <div class="company-row">
+                    <div class="label">資本金</div>
+                    <div class="value">
+                        50億円
+                    </div>
+                </div>
+
+                <div class="company-row">
+                    <div class="label">従業員数</div>
+                    <div class="value">
+                        2,487名
+                    </div>
+                </div>
+
+                <div class="company-row">
+                    <div class="label">本社</div>
+                    <div class="value">
+                        東京都北東区狭間
+                    </div>
+                </div>
+
+                <div class="company-row">
+                    <div class="label">主要研究拠点</div>
+                    <div class="value">
+                        南埼玉研究生産センター
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ====================
+     PAGE LINKS
+==================== -->
+
+<section>
+
+    <div class="section-inner">
+
+        <div class="section-title">
+            <div class="en">CONTENTS</div>
+            <h2>コンテンツ</h2>
+        </div>
+
+        <div class="page-links">
+
+            <a href="about.html" class="page-link">
+                会社情報
+            </a>
+
+            <a href="history.html" class="page-link">
+                沿革
+            </a>
+
+            <a href="business.html" class="page-link">
+                事業内容
+            </a>
+
+            <a href="research.html" class="page-link">
+                研究開発
+            </a>
+
+            <a href="facilities.html" class="page-link">
+                研究施設
+            </a>
+
+            <a href="cases.html" class="page-link">
+                実績・導入事例
+            </a>
+
+            <a href="recruitment.html" class="page-link">
+                採用情報
+            </a>
+
+            <a href="faq.html" class="page-link">
+                よくある質問
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ====================
+     CONTACT
+==================== -->
+
+<section class="contact">
+
+    <div class="section-inner">
+
+        <div class="section-title">
+            <div class="en">CONTACT</div>
             <h2>お問い合わせ</h2>
         </div>
 
         <p>
-            灯希エネルギー株式会社へのお問い合わせはこちらから。
+            当社へのお問い合わせはこちらからお願いいたします。
         </p>
 
-        <p>
-            <strong>お問い合わせ窓口</strong><br>
-            contact@example.com
-        </p>
+        <a href="contact.html" class="contact-button">
+            お問い合わせ →
+        </a>
 
-    </section>
+    </div>
+
+</section>
 
 </main>
 
 
+<!-- ====================
+     FOOTER
+==================== -->
+
 <footer>
-    <div class="footer-name">
-        灯希エネルギー株式会社
+
+    <div class="footer-inner">
+
+        <div class="footer-company">
+            灯希エネルギー株式会社
+        </div>
+
+        <div class="footer-links">
+            <a href="privacy.html">プライバシーポリシー</a>
+            <a href="contact.html">お問い合わせ</a>
+        </div>
+
     </div>
 
-    <small>
-        © 2026 TOUKI ENERGY CORPORATION.
-    </small>
+    <div class="footer-inner">
+
+        <div class="copyright">
+            © 2026 TOUKI ENERGY CORPORATION. All Rights Reserved.
+        </div>
+
+    </div>
+
 </footer>
 
 </body>
