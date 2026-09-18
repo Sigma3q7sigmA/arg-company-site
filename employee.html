@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>社員専用ページ | 灯希エネルギー株式会社</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Helvetica Neue",
+                "Yu Gothic",
+                YuGothic,
+                sans-serif;
+
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 120px auto;
+            padding: 50px;
+            background: white;
+            border: 1px solid #ddd;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .warning {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #aaa;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: #111;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ff0000;
+        }
+
+        #message {
+            margin-top: 20px;
+            color: #ff0000;
+        }
+
+        .back {
+            margin-top: 40px;
+        }
+
+        .back a {
+            color: #111;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<main>
+
+    <h1>社員専用ページ</h1>
+
+    <div class="warning">
+        このページは灯希エネルギー株式会社の社員専用です。
+        <br>
+        社員証に記載されたアクセスコードを入力してください。
+    </div>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="アクセスコード"
+    >
+
+    <button onclick="login()">
+        認証
+    </button>
+
+    <div id="message"></div>
+
+    <div class="back">
+        <a href="index.html">← トップページへ戻る</a>
+    </div>
+
+</main>
+
+
+<script>
+
+function login() {
+
+    const password =
+        document.getElementById("password").value;
+
+    /*
+     * ARG用の仮パスワード
+     *
+     * 後で変更できます。
+     */
+
+    const correctPassword = "TOUKI2026";
+
+
+    if (password === correctPassword) {
+
+        window.location.href =
+            "employee-secret.html";
+
+    } else {
+
+        document.getElementById("message").textContent =
+            "アクセスコードが正しくありません。";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
